@@ -17,7 +17,7 @@ print(df.head())
 #App Layout
 
 app.layout = html.Div([
-    html.H1("Bees Survey Dahboard",style={'text-align': 'center'}),
+    html.H1("Bees Survey Dashboard",style={'text-align': 'center'}),
     dcc.Dropdown(id='slct_year',
                  options=[
                     {'label': '2015', 'value':2015},
