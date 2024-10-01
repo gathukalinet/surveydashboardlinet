@@ -23,7 +23,8 @@ app.layout = html.Div([
                     {'label': '2015', 'value':2015},
                     {'label': '2016', 'value':2016},
                     {'label': '2017', 'value':2017},
-                    {'label': '2018', 'value':2018}],
+                    {'label': '2018', 'value':2018},
+                    {'label': '2019', 'value':2019}],
                 multi=False,
                 value=2015,
                 style={'width': '40%'}
@@ -51,17 +52,8 @@ def update_graph(option_slctd):
     dff = dff[dff["Affected by"] == "Varroa_mites"]
 
     # Plotly Express
-    fig = px.choropleth(
-        data_frame=dff,
-        locationmode='USA-states',
-        locations='state_code',
-        scope="usa",
-        color='Pct of Colonies Impacted',
-        hover_data=['State', 'Pct of Colonies Impacted'],
-        color_continuous_scale=px.colors.sequential.YlOrRd,
-        labels={'Pct of Colonies Impacted': '% of Bee Colonies'},
-        template='plotly_dark'
-    )
+    fig = px.line(dff, x='Year', y='Pct of Colonies Impacted')
+    
     return container, fig
 
 
